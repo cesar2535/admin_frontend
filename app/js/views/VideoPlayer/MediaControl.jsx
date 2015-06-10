@@ -3,12 +3,15 @@ var MediaControl = React.createClass({
   render: function () {
     return (
       <div className="media-control">
-        <div className="play"></div>
+        <div className="play" onClick={this.handlePlay}></div>
         <div className="pause"></div>
         <div className="fullscreen"></div>
       </div>
     );
-  }
+  },
+  handlePlay: function () {
+
+  },
 });
 
 module.exports = MediaControl;
