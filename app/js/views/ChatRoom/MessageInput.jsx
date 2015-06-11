@@ -1,5 +1,10 @@
+var actions = require('../../actions/AppActionCreator');
+
 var MessageInput = React.createClass({
   displayName: 'MessageInput',
+  propTypes: {
+
+  },
   getInitialState: function () {
     return {
       currentItem: {

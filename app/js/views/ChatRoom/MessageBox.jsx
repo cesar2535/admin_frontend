@@ -3,6 +3,9 @@ var MessageInput = require('./MessageInput.jsx');
 
 var MessageBox = React.createClass({
   displayName: 'MessageBox',
+  propTypes: {
+
+  },
   getInitialState: function () {
 
   },

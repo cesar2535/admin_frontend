@@ -1,5 +1,8 @@
 var MessagesList = React.createClass({
   displayName: 'MessagesList',
+  propTypes: {
+
+  },
   render: function () {
     var messages;
     return (

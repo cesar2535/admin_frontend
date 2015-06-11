@@ -16,32 +16,31 @@ require("babel-core/polyfill");
 var page = require('page');
 var actions = require('./actions/AppActionCreator');
 var MainApp = require('./views/MainApp.jsx');
-var IndexRoute = require('./views/IndexRoute.jsx');
-var StreamingRoom = require('./views/StreamingRoom.jsx');
 
 $(function(){
-  page.base('');
-  page('/', function (ctx, next) {
-    React.render( <IndexRoute />, document.getElementById('container') );
-    console.log(ctx);
-  });
-  page('/streaming', function (ctx, next) {
-    React.render( <StreamingRoom />, document.getElementById('container') );
-    console.log(ctx);
-  });
-  page('/admin', function (ctx, next) {
-    React.render( <MainApp />, document.getElementById('container') );
-    console.info('Admin Video Browser Page');
-    console.log(ctx);
-  });
-  page('/admin/broadcast/:id', function (ctx, next) {
-    console.info('Admin broadcast Page');
-    console.log(ctx);
-  });
-  page('*', function () {
-    console.error('Page Not Found :-(');
-  });
-  page({
-    hashbang: true
-  });
+  React.render( <MainApp />, document.getElementById('container') );
+  // page.base('');
+  // page('/', function (ctx, next) {
+  //   React.render( <IndexRoute />, document.getElementById('container') );
+  //   console.log(ctx);
+  // });
+  // page('/streaming', function (ctx, next) {
+  //   React.render( <StreamingRoom />, document.getElementById('container') );
+  //   console.log(ctx);
+  // });
+  // page('/admin', function (ctx, next) {
+  //   React.render( <MainApp />, document.getElementById('container') );
+  //   console.info('Admin Video Browser Page');
+  //   console.log(ctx);
+  // });
+  // page('/admin/broadcast/:id', function (ctx, next) {
+  //   console.info('Admin broadcast Page');
+  //   console.log(ctx);
+  // });
+  // page('*', function () {
+  //   console.error('Page Not Found :-(');
+  // });
+  // page({
+  //   hashbang: true
+  // });
 })
