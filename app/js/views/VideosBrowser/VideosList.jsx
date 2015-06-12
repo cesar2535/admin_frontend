@@ -9,6 +9,12 @@ var VideosList = React.createClass({
     var arr = arrVideos.map(function (item) {
       return <VideoItem video={item} onClick={this.handleClick.bind(this, item)} />
     });
+
+    return (
+      <div className="videos-list">
+        {arr}
+      </div>
+    );
   },
   handleClick: function (event) {
 

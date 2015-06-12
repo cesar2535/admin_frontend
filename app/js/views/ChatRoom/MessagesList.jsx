@@ -4,7 +4,15 @@ var MessagesList = React.createClass({
 
   },
   render: function () {
-    var messages;
+    var arrMessages;
+    var messages = arrMessages.map(function (item) {
+      return (
+        <li>
+          <span className="username"></span>
+          <span className="content"></span>
+        </li>
+      );
+    });
     return (
       <ul className='messages-list'>
         {messages}

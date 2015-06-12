@@ -23,8 +23,7 @@ var MessageInput = React.createClass({
         <input type='text' 
                value={this.state.currentItem.name} 
                placeholder="Send a message"
-               onChange={this.handleChange}
-                />
+               onChange={this.handleChange} />
         <button type='submit' onClick={this.handleClick}>{""}</button>
       </form>
     );
