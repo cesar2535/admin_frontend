@@ -10,7 +10,7 @@ var VideoPlayer = React.createClass({
     return {
       duration: 0,
       currentTime: 0,
-      seeking: false,
+      buffering: false,
       playing: false
     };
   },
@@ -40,6 +40,7 @@ var VideoPlayer = React.createClass({
   onPlay: function (event) {
     console.info('onPlay');
     this.setState({
+      buffering: false,
       playing: true
     });
 
@@ -47,29 +48,48 @@ var VideoPlayer = React.createClass({
   onPause: function (event) {
     console.info('onPause');
     this.setState({
-      playing:false
+      buffering: false,
+      playing: false
     });
   },
   onBuffer: function (event) {
+    console.log(event);
     console.info('onBuffer');
+    this.setState({
+      buffering: true,
+      playing: false
+    });
   },
   onIdle: function (event) {
     console.info('onIdle');
+    this.setState({
+      buffering: false,
+      playing: false
+    });
   },
   onComplete: function (event) {
+    console.log(event);
     console.info('onComplete');
+    this.setState({
+      buffering: false,
+      playing: false
+    });
   },
   onError: function (event) {
     console.error('onError');
+    this.setState({
+      buffering: false,
+      playing: false
+    });
   },
-  play: function () {
-    console.info('Play func');
-    if (!this.state.playing) {
-      this.jwplayer.play(true);
-    } else {
-      this.jwplayer.pause(true);
-    }
-  }
+  // play: function () {
+  //   console.info('Play func');
+  //   if (!this.state.playing) {
+  //     this.jwplayer.play(true);
+  //   } else {
+  //     this.jwplayer.pause(true);
+  //   }
+  // }
 });
 
 module.exports = VideoPlayer;
