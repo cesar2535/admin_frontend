@@ -12,6 +12,7 @@ var MainApp = React.createClass({
 
   //
   componentDidMount: function() {
+    console.info('MainApp Did Mount');
   },
 
   // 元件將從畫面上移除時，要做善後工作
@@ -45,7 +46,7 @@ var MainApp = React.createClass({
     return (
       <div className="wrapper">
         <Header />
-        <VideoPlayer />
+        <VideoPlayer src="/assets/images/test.mp4" />
       </div>
     )
   },
