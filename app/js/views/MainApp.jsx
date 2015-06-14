@@ -3,6 +3,7 @@
 // var Container = require('./Container.jsx');
 var Header = require('./Header/Header.jsx');
 var VideoPlayer = require('./VideoPlayer/VideoPlayer.jsx');
+var MessageBox = require('./ChatRoom/MessageBox.jsx');
 //
 var MainApp = React.createClass({
 
@@ -46,7 +47,7 @@ var MainApp = React.createClass({
     return (
       <div className="wrapper">
         <Header />
-        <VideoPlayer src="/assets/images/test.mp4" />
+        <MessageBox />
       </div>
     )
   },

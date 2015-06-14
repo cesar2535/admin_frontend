@@ -8,40 +8,42 @@ var MessageInput = React.createClass({
   getInitialState: function () {
     return {
       currentItem: {
-        name: '',
+        username: '',
+        content: '',
         uid: null,
         created: null
       }
     }
+  },
+  componentWillMount: function () {
+
   },
   componentDidMount: function () {
 
   },
   render: function () {
     return (
-      <form className='message-input' onSubmit={this.handleSubmit}>
+      <div className='message-input' onSubmit={this.handleSubmit}>
         <input type='text' 
-               value={this.state.currentItem.name} 
+               value={this.state.currentItem.content} 
                placeholder="Send a message"
-               onChange={this.handleChange} />
-        <button type='submit' onClick={this.handleClick}>{""}</button>
-      </form>
+               onChange={this.handleChange} 
+               onKeyDown={this.handleKeyDown} />
+        <button type='button' onClick={this.handleClick}>{""}</button>
+      </div>
     );
   },
   handleChange: function (event) {
-    this.state.currentItem.name = event.target.value;
+    this.state.currentItem.content = event.target.value;
     this.setState({
       currentItem: this.state.currentItem
     });
   },
   handleClick: function (event) {
-    this.handleSubmit();
-  },
-  handleSubmit: function (event) {
     var item = this.state.currentItem;
 
     // Block the submit of message if text was empty
-    if (item.name.trim().length == 0) return;
+    if (item.content.trim().length == 0) return;
     item.created = Date.now();
 
     // Send the message to server
@@ -50,11 +52,17 @@ var MessageInput = React.createClass({
     // Clear the input field
     this.setState({
       currentItem: {
-        name: '',
+        username: '',
+        content: '',
         uid: null,
         created: null
       }
     });
+  },
+  handleKeyDown: function (event) {
+    if (event.keyCode == 13) {
+      this.handleClick();
+    }
   }
 });
 

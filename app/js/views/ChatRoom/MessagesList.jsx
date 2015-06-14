@@ -1,15 +1,19 @@
 var MessagesList = React.createClass({
   displayName: 'MessagesList',
   propTypes: {
-
+    arrMessages: React.PropTypes.array
+  },
+  componentDidUpdate: function () {
+    var elem = document.querySelector('.messages-list');
+    elem.scrollTop = elem.scrollHeight - elem.offsetHeight;
   },
   render: function () {
-    var arrMessages;
+    var arrMessages = this.props.arrMessages;
     var messages = arrMessages.map(function (item) {
       return (
-        <li>
-          <span className="username"></span>
-          <span className="content"></span>
+        <li key={item.uid}>
+          <span className="username">{item.username}</span>
+          <span className="content">{item.content}</span>
         </li>
       );
     });

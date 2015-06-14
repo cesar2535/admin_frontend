@@ -1,5 +1,6 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppConstants = require('../constants/AppConstants');
+var shortid = require('shortid');
 
 /**
  * 這是一個 singleton 物件
@@ -15,6 +16,16 @@ var AppActionCreators = {
     //     actionType: AppConstants.TODO_READ,
     //     items: [] // 送一包假資料進去
     // });
+  },
+  sendMessage: function (item) {
+    var tid = "m_" + shortid.generate();
+    item.tid = tid;
+    item.uid = shortid.generate();
+    // console.log(item);
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.MESSAGE_ADD,
+      item: item
+    });
   },
 
   // dummy
