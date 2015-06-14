@@ -18,7 +18,7 @@ var MainApp = React.createClass({
 
   // 元件將從畫面上移除時，要做善後工作
   componentWillUnmount: function() {
-    TodoStore.removeChangeListener( this._onChange );
+    ChatStore.removeChangeListener( this._onChange );
   },
 
   componentDidUnmount: function() {

@@ -14,7 +14,25 @@ var MessageBox = React.createClass({
   },
   componentWillMount: function () {
     // console.info('MessageBox will mount');
+    var channel = {
+      name: 'test'
+    };
     ChatStore.addListener( AppConstants.CHANGE_EVENT, this._onChange );
+    actions.createChannel(channel);
+    this.ioNsp = io('http://localhost:8080/' + channel.name);
+  },
+  componentDidMount: function () {
+    this.ioNsp.on('namespace broadcast', function (res) {
+      // console.log(res);
+      actions.addMessage(res);
+    });
+  },
+  componentWillUnmount: function () {
+    console.log('componentWillUnmount');
+    var channel = {
+      name: 'test'
+    };
+    actions.destroyChannel(channel);
   },
   render: function () {
     var o = this.state;

@@ -140,7 +140,7 @@ module.exports = {
     // 下列三者是我自定義的，方便在 nodejs 操作 api
     protocol: 'http',
     host: 'localhost',
-    port: 8080,
+    port: 3000,
 
     // webpack-dev-middleware options
     quiet: true,  // 設為 true 即不會顯示太多 debug 訊息，讓 console 乾淨一點

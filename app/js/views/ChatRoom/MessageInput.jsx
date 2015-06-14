@@ -1,4 +1,5 @@
 var actions = require('../../actions/AppActionCreator');
+var shortid = require('shortid');
 
 var MessageInput = React.createClass({
   displayName: 'MessageInput',
@@ -6,9 +7,10 @@ var MessageInput = React.createClass({
 
   },
   getInitialState: function () {
+    this.username = shortid.generate();
     return {
       currentItem: {
-        username: '',
+        username: this.username,
         content: '',
         uid: null,
         created: null
@@ -52,7 +54,7 @@ var MessageInput = React.createClass({
     // Clear the input field
     this.setState({
       currentItem: {
-        username: '',
+        username: this.username,
         content: '',
         uid: null,
         created: null
