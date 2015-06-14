@@ -22,6 +22,9 @@ var MessageBox = React.createClass({
     this.ioNsp = io('http://localhost:8080/' + channel.name);
   },
   componentDidMount: function () {
+    this.ioNsp.on('private', function (res) {
+      console.log(res);
+    });
     this.ioNsp.on('namespace broadcast', function (res) {
       // console.log(res);
       actions.addMessage(res);

@@ -52,7 +52,7 @@ var AppActionCreators = {
     //   actionType: AppConstants.MESSAGE_ADD,
     //   item: item
     // });
-    io('http://localhost:8080/test').emit("message", item);
+    io(chatroomUrl + '/test').emit("message", item);
   },
   addMessage: function (item) {
     AppDispatcher.handleViewAction({
