@@ -1,11 +1,13 @@
 #main {
   @include display-flex;
+  height: 90vh;
   section {
     background-color: white;
     width: 75vw;
     padding: 0 100px;
     border-right: 0.5vw solid #e0e0e0;
     box-sizing: border-box;
+    overflow-y: auto;
     .title {
       padding: 0 50px;
     }
@@ -25,7 +27,11 @@
     }
   }
   aside {
+    @include display-flex;
+    @include flex-direction(column);
+    @include justify-content(center);
     background-color: white;
     width: 25vw;
+    overflow-y: auto;
   }
 }

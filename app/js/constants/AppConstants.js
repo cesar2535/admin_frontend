@@ -19,6 +19,7 @@ module.exports = keyMirror({
 
   CHANGE_EVENT: null,
   FILES_LOAD: null,
+  FILE_SELECT: null,
   MESSAGE_ADD: null,
 
   noop: null

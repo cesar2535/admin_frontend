@@ -7,7 +7,7 @@ var arrVideos = [];
 
 window.arrVideos = arrVideos;
 
-var selectItem = null; 
+var selectedItem = {}; 
 
 var VideoStore = {};
 
@@ -15,7 +15,7 @@ Object.assign( VideoStore, EventEmitter.prototype, {
   getAll: function () {
     return {
       arrVideos: arrVideos,
-      selectItem: selectItem,
+      selectedItem: selectedItem,
       screenSize: screenSize
     };
   }
@@ -29,6 +29,14 @@ VideoStore.dispatchToken = AppDispatcher.register( function videoEventHandler(ev
       console.log(action.items);
       arrVideos = arrVideos.concat( action.items );
       VideoStore.emit(AppConstants.CHANGE_EVENT);
+      break;
+    case AppConstants.FILE_SELECT:
+      console.info('VideoStore: FILE_SELECT');
+      console.log(action.item);
+      if (selectedItem != action.item) {
+        selectedItem = action.item;
+        VideoStore.emit( AppConstants.CHANGE_EVENT );
+      }
       break;
   }
 });

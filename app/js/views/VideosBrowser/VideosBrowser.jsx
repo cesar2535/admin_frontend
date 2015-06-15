@@ -29,10 +29,10 @@ var VideosBrowser = React.createClass({
     return (
       <div id="main">
         <section className="videos-browser">
-          <VideosList arrVideos={o.arrVideos} />
+          <VideosList arrVideos={o.arrVideos} selectedItem={o.selectedItem} />
         </section>
         <aside>
-          <VideoDetail video={video} />
+          <VideoDetail video={o.selectedItem} />
         </aside>
       </div>
     );

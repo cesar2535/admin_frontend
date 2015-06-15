@@ -41,7 +41,12 @@ var AppActionCreators = {
       });
     });
   },
-
+  selectFile: function (item) {
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.FILE_SELECT,
+      item: item
+    });
+  },
   createChannel: function (item) {
     fetch( chatroomUrl + '/channel/create', {
       method: 'post',
