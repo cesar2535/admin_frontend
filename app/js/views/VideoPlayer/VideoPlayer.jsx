@@ -19,6 +19,7 @@ var VideoPlayer = React.createClass({
     this.jwplayer = jwplayer('video').setup({
       file: this.props.src,
       width: "100%",
+      autostart: true,
       aspectratio: "16:9"
     });
 

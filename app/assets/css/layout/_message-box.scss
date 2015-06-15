@@ -1,0 +1,24 @@
+.message-box {
+  .messages-list {
+    height: 500px;
+  }
+  .message-input {
+    position: relative;
+    input {
+      width: 80%;
+      height: 100%;
+      border: none;
+      margin: 0 auto;
+      box-shadow: none;
+      display: block;
+    }
+    button {
+      width: 50px;
+      border: none;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 7%;
+    }
+  }
+}

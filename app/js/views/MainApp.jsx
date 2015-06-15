@@ -4,6 +4,7 @@
 var Header = require('./Header/Header.jsx');
 var VideoPlayer = require('./VideoPlayer/VideoPlayer.jsx');
 var MessageBox = require('./ChatRoom/MessageBox.jsx');
+var VideoDetail = require('./VideosBrowser/VideoDetail.jsx');
 //
 var MainApp = React.createClass({
 
@@ -44,12 +45,34 @@ var MainApp = React.createClass({
   //
   render: function() {
 
+    // return (
+    //   <div className="wrapper">
+    //     <Header />
+    //     <div id="main">
+    //       <section>
+    //         <div className="title">
+    //           <h1>Title</h1>
+    //         </div>
+    //         <VideoPlayer src="/assets/images/test.mp4" />
+    //       </section>
+    //       <aside>
+    //         <MessageBox />
+    //       </aside>
+    //     </div>
+    //   </div>
+    // )
     return (
       <div className="wrapper">
         <Header />
-        <MessageBox />
+        <div id="main">
+          <section className="video-browser">
+          </section>
+          <aside>
+            <VideoDetail />
+          </aside>
+        </div>
       </div>
-    )
+    );
   },
 
 

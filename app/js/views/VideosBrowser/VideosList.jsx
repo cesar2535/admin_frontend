@@ -7,7 +7,7 @@ var VideosList = React.createClass({
     var arrVideos;
 
     var arr = arrVideos.map(function (item) {
-      return <VideoItem video={item} onClick={this.handleClick.bind(this, item)} />
+      return <VideoItem key={item.uid} video={item} onClick={this.handleClick.bind(this, item)} />
     });
 
     return (

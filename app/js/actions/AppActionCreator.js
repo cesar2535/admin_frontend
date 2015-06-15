@@ -17,6 +17,10 @@ var AppActionCreators = {
     //     items: [] // 送一包假資料進去
     // });
   },
+  loadFiles: function () {
+
+  },
+
   createChannel: function (item) {
     fetch( chatroomUrl + '/channel/create', {
       method: 'post',
