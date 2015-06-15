@@ -48,28 +48,28 @@ var MainApp = React.createClass({
       image: '/assets/images/default_file.png',
       title: 'Test title'
     };
-    // return (
-    //   <div className="wrapper">
-    //     <Header />
-    //     <div id="main">
-    //       <section>
-    //         <div className="title">
-    //           <h1>Title</h1>
-    //         </div>
-    //         <VideoPlayer src="/assets/images/test.mp4" />
-    //       </section>
-    //       <aside>
-    //         <MessageBox />
-    //       </aside>
-    //     </div>
-    //   </div>
-    // )
     return (
       <div className="wrapper">
         <Header />
-        <VideosBrowser />
+        <div id="main">
+          <section>
+            <div className="title">
+              <h1>Title</h1>
+            </div>
+            <VideoPlayer src="/assets/images/test.mp4" />
+          </section>
+          <aside>
+            <MessageBox />
+          </aside>
+        </div>
       </div>
     );
+    // return (
+    //   <div className="wrapper">
+    //     <Header />
+    //     <VideosBrowser />
+    //   </div>
+    // );
   },
 
 

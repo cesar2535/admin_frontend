@@ -19,7 +19,7 @@ var MessageBox = React.createClass({
     };
     ChatStore.addListener( AppConstants.CHANGE_EVENT, this._onChange );
     actions.createChannel(channel);
-    this.ioNsp = io('http://localhost:8080/' + channel.name);
+    this.ioNsp = io('http://ec2-52-69-53-3.ap-northeast-1.compute.amazonaws.com:8080/' + channel.name);
   },
   componentDidMount: function () {
     this.ioNsp.on('private', function (res) {

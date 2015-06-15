@@ -11,7 +11,7 @@ var MessagesList = React.createClass({
     var arrMessages = this.props.arrMessages;
     var messages = arrMessages.map(function (item) {
       return (
-        <li key={item.uid}>
+        <li className="message-item" key={item.uid}>
           <span className="username">{item.username + ': '}</span>
           <span className="content">{item.content}</span>
         </li>

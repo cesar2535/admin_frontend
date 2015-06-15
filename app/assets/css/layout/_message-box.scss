@@ -1,6 +1,12 @@
 .message-box {
   .messages-list {
     height: 500px;
+    padding-left: 10px;
+    overflow-y: scroll;
+  }
+  .message-item {
+    font-size: 20px;
+    word-wrap: break-word;
   }
   .message-input {
     position: relative;
