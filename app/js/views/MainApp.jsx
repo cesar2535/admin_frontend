@@ -4,7 +4,7 @@
 var Header = require('./Header/Header.jsx');
 var VideoPlayer = require('./VideoPlayer/VideoPlayer.jsx');
 var MessageBox = require('./ChatRoom/MessageBox.jsx');
-var VideoDetail = require('./VideosBrowser/VideoDetail.jsx');
+var VideosBrowser = require('./VideosBrowser/VideosBrowser.jsx');
 //
 var MainApp = React.createClass({
 
@@ -44,7 +44,10 @@ var MainApp = React.createClass({
 
   //
   render: function() {
-
+    var video = {
+      image: '/assets/images/default_file.png',
+      title: 'Test title'
+    };
     // return (
     //   <div className="wrapper">
     //     <Header />
@@ -64,13 +67,7 @@ var MainApp = React.createClass({
     return (
       <div className="wrapper">
         <Header />
-        <div id="main">
-          <section className="video-browser">
-          </section>
-          <aside>
-            <VideoDetail />
-          </aside>
-        </div>
+        <VideosBrowser />
       </div>
     );
   },

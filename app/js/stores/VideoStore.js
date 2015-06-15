@@ -1,7 +1,7 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppConstants = require('../constants/AppConstants');
 var actions = require('../actions/AppActionCreator');
-var EventEmitter = require('event').EventEmitter;
+var EventEmitter = require('events').EventEmitter;
 
 var arrVideos = [];
 
@@ -18,6 +18,18 @@ Object.assign( VideoStore, EventEmitter.prototype, {
       selectItem: selectItem,
       screenSize: screenSize
     };
+  }
+});
+
+VideoStore.dispatchToken = AppDispatcher.register( function videoEventHandler(event) {
+  var action = event.action;
+  switch (action.actionType) {
+    case AppConstants.FILES_LOAD:
+      console.info('VideoStore: FILES_LOAD');
+      console.log(action.items);
+      arrVideos = arrVideos.concat( action.items );
+      VideoStore.emit(AppConstants.CHANGE_EVENT);
+      break;
   }
 });
 
@@ -51,3 +63,5 @@ function handleResize(){
     }.bind(this), 0)
 
 }
+
+module.exports = VideoStore;

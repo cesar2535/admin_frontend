@@ -3,12 +3,16 @@ var VideoItem = require('./VideoItem.jsx');
 
 var VideosList = React.createClass({
   displayName: 'VideosList',
+  propTypes: {
+    arrVideos: React.PropTypes.array.isRequired
+  },
   render: function () {
-    var arrVideos;
+    var arrVideos = this.props.arrVideos;
 
+    var that = this;
     var arr = arrVideos.map(function (item) {
       return <VideoItem key={item.uid} video={item} onClick={this.handleClick.bind(this, item)} />
-    });
+    }, this);
 
     return (
       <div className="videos-list">
@@ -16,8 +20,8 @@ var VideosList = React.createClass({
       </div>
     );
   },
-  handleClick: function (event) {
-
+  handleClick: function (item) {
+    console.log(item);
   }
 });
 

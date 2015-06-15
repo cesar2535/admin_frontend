@@ -1,5 +1,24 @@
-.video-browser {
+#main section.videos-browser {
+  padding: 0 50px;
+}
 
+.videos-list {
+  @include display-flex;
+  @include flex-wrap(wrap);
+  @include justify-content(flex-start);
+  .video-item {
+    text-align: center;
+    margin: 20px 10px;
+    width: 180px;
+  }
+  .item-img {
+    background-color: #d0d0d0;
+    vertical-align: middle;
+    width: 100%;
+  }
+  .item-title {
+    display: block;
+  }
 }
 
 .video-detail {

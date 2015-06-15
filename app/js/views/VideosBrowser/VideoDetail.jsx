@@ -1,3 +1,5 @@
+var actions = require('../../actions/AppActionCreator');
+
 var VideoDetail = React.createClass({
   displayName: 'VideoDetail',
   propTypes: {
@@ -7,22 +9,23 @@ var VideoDetail = React.createClass({
     }).isRequired
   },
   render: function () {
+    var video = this.props.video;
+
     return (
       <div className="video-detail">
         <div className="preview">
-          <img src="/assets/images/default_file.png" />
+          <img src={video.image} />
         </div>
         <div className="description">
-          <h4 className="title">title</h4>
+          <h4 className="title">{video.title}</h4>
         </div>
         <div className="btns-group">
-          <button id="broadcast">B</button>
+          <button id="broadcast" onClick={this.onBroadcastClick}>B</button>
         </div>
       </div>
     );
   },
-  onBroadcastClick: function () {
-
+  onBroadcastClick: function (event) {
   }
 });
 

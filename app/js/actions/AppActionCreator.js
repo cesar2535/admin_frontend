@@ -1,7 +1,9 @@
+require('whatwg-fetch');
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppConstants = require('../constants/AppConstants');
 var shortid = require('shortid');
-var chatroomUrl = 'http://localhost:8080';
+var chatroomUrl = 'http://ec2-52-69-53-3.ap-northeast-1.compute.amazonaws.com:8080/';
+var nasUrl = 'http://localhost:8081';
 /**
  * 這是一個 singleton 物件
  */
@@ -17,8 +19,27 @@ var AppActionCreators = {
     //     items: [] // 送一包假資料進去
     // });
   },
+  // Load video files from server
   loadFiles: function () {
+    fetch( nasUrl + '/streaming/files', {
+      method: 'get'
+    }).then(function (res) {
+      console.info('Action: Load Files');
+      console.log(res);
+      res.json().then(function (data) {
+        console.log(data);
 
+        var item;
+        for (item of data.data) {
+          item.uid = shortid.generate();
+        }
+        
+        AppDispatcher.handleServerAction({
+          actionType: AppConstants.FILES_LOAD,
+          items: data.data
+        });
+      });
+    });
   },
 
   createChannel: function (item) {

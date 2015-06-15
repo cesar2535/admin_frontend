@@ -18,6 +18,7 @@ module.exports = keyMirror({
   OBJECT_SERVER_ERROR: null,
 
   CHANGE_EVENT: null,
+  FILES_LOAD: null,
   MESSAGE_ADD: null,
 
   noop: null
