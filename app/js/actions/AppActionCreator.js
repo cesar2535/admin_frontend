@@ -31,7 +31,7 @@ var AppActionCreators = {
 
         var item;
         for (item of data.data) {
-          item.uid = shortid.generate();
+          item.uid = item.fileName;
         }
         
         AppDispatcher.handleServerAction({

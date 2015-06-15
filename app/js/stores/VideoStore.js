@@ -31,7 +31,7 @@ VideoStore.dispatchToken = AppDispatcher.register( function videoEventHandler(ev
       VideoStore.emit(AppConstants.CHANGE_EVENT);
       break;
     case AppConstants.FILE_SELECT:
-      console.info('VideoStore: FILE_SELECT');
+      console.info('VideoStore: FILE_SELECT', action.item.fileName);
       console.log(action.item);
       if (selectedItem != action.item) {
         selectedItem = action.item;

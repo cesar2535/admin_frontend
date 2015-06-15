@@ -9,7 +9,13 @@ var VideosBrowser = require('./VideosBrowser/VideosBrowser.jsx');
 var MainApp = React.createClass({
 
   //
+  getInitialState: function () {
+    return {
+      currentView: ""
+    };
+  },
   componentWillMount: function() {
+    
   },
 
   //
@@ -44,10 +50,6 @@ var MainApp = React.createClass({
 
   //
   render: function() {
-    var video = {
-      image: '/assets/images/default_file.png',
-      title: 'Test title'
-    };
     // return (
     //   <div className="wrapper">
     //     <Header />

@@ -25,7 +25,7 @@ var VideosList = React.createClass({
     );
   },
   handleClick: function (item) {
-    console.log(item);
+    // console.log(item);
     actions.selectFile(item);
   }
 });

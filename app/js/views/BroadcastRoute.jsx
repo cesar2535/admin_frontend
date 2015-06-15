@@ -2,9 +2,10 @@
 
 // var Container = require('./Container.jsx');
 var Header = require('./Header/Header.jsx');
-var VideosBrowser = require('./VideosBrowser/VideosBrowser.jsx');
+var VideoPlayer = require('./VideoPlayer/VideoPlayer.jsx');
+var MessageBox = require('./ChatRoom/MessageBox.jsx');
 //
-var BrowserRoute = React.createClass({
+var BroadcastRoute = React.createClass({
 
   //
   componentWillMount: function() {
@@ -18,7 +19,6 @@ var BrowserRoute = React.createClass({
 
   // 元件將從畫面上移除時，要做善後工作
   componentWillUnmount: function() {
-    // VideoStore.removeChangeListener( this._onChange );
   },
 
   componentDidUnmount: function() {
@@ -46,7 +46,17 @@ var BrowserRoute = React.createClass({
     return (
       <div className="wrapper">
         <Header />
-        <VideosBrowser />
+        <div id="main">
+          <section>
+            <div className="title">
+              <h1>Title</h1>
+            </div>
+            <VideoPlayer src="/assets/images/test.mp4" />
+          </section>
+          <aside>
+            <MessageBox />
+          </aside>
+        </div>
       </div>
     );
   },
@@ -54,4 +64,4 @@ var BrowserRoute = React.createClass({
 
 });
 
-module.exports = BrowserRoute;
+module.exports = BroadcastRoute;

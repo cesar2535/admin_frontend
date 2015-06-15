@@ -32,6 +32,7 @@ var MessageBox = React.createClass({
   },
   componentWillUnmount: function () {
     console.log('componentWillUnmount');
+    ChatStore.removeListener( AppConstants.CHANGE_EVENT, this._onChange );
     var channel = {
       name: 'test'
     };

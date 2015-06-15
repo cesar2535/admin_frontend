@@ -1,10 +1,11 @@
 var actions = require('../../actions/AppActionCreator');
+var page = require('page');
 
 var VideoDetail = React.createClass({
   displayName: 'VideoDetail',
   propTypes: {
     video: React.PropTypes.shape({
-      image: React.PropTypes.string.isRequired,
+      image: React.PropTypes.string,
       fileName: React.PropTypes.string.isRequired
     }).isRequired
   },
@@ -33,8 +34,9 @@ var VideoDetail = React.createClass({
     );
   },
   onBroadcastClick: function (event) {
-    console.log(event);
+    // console.log(event);
     console.log(this.props.video);
+    page('/broadcast/' + this.props.video.uid);
   }
 });
 
