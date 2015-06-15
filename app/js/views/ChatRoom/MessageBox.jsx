@@ -19,24 +19,24 @@ var MessageBox = React.createClass({
     };
     ChatStore.addListener( AppConstants.CHANGE_EVENT, this._onChange );
     actions.createChannel(channel);
-    this.ioNsp = io('http://ec2-52-69-53-3.ap-northeast-1.compute.amazonaws.com:8080/' + channel.name);
+    // this.ioNsp = io('http://ec2-52-69-53-3.ap-northeast-1.compute.amazonaws.com:8080/' + channel.name);
   },
   componentDidMount: function () {
     console.info('componentDidMount');
-    this.ioNsp.on('private', function (res) {
-      console.log(res);
-    });
-    this.ioNsp.on('namespace broadcast', function (res) {
-      // console.log(res);
-      actions.addMessage(res);
-    });
+    // this.ioNsp.on('private', function (res) {
+    //   console.log(res);
+    // });
+    // this.ioNsp.on('namespace broadcast', function (res) {
+    //   // console.log(res);
+    //   actions.addMessage(res);
+    // });
   },
   componentWillUnmount: function () {
     console.log('componentWillUnmount');
     var channel = {
       name: 'test'
     };
-    // actions.destroyChannel(channel);
+    actions.destroyChannel(channel);
   },
   render: function () {
     var o = this.state;

@@ -58,6 +58,10 @@ var AppActionCreators = {
     }).then(function (res) {
       console.info('Action: Create Channel');
       console.log(res);
+      AppDispatcher.handleServerAction({
+        actionType: AppConstants.CHANNEL_CREATE,
+        item: item
+      });
     });
   },
   destroyChannel: function (item) {
@@ -71,6 +75,10 @@ var AppActionCreators = {
     }).then(function (res) {
       console.info('Action: Destroy Channel');
       console.log(res);
+      AppDispatcher.handleServerAction({
+        actionType: AppConstants.CHANNEL_DESTROY,
+        item: item
+      });
     });
   },
   sendMessage: function (item) {
