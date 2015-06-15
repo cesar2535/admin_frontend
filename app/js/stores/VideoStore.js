@@ -27,7 +27,7 @@ VideoStore.dispatchToken = AppDispatcher.register( function videoEventHandler(ev
     case AppConstants.FILES_LOAD:
       console.info('VideoStore: FILES_LOAD');
       console.log(action.items);
-      arrVideos = arrVideos.concat( action.items );
+      arrVideos = action.items;
       VideoStore.emit(AppConstants.CHANGE_EVENT);
       break;
     case AppConstants.FILE_SELECT:

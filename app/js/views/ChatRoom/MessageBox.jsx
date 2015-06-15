@@ -22,6 +22,7 @@ var MessageBox = React.createClass({
     this.ioNsp = io('http://ec2-52-69-53-3.ap-northeast-1.compute.amazonaws.com:8080/' + channel.name);
   },
   componentDidMount: function () {
+    console.info('componentDidMount');
     this.ioNsp.on('private', function (res) {
       console.log(res);
     });
@@ -32,11 +33,10 @@ var MessageBox = React.createClass({
   },
   componentWillUnmount: function () {
     console.log('componentWillUnmount');
-    ChatStore.removeListener( AppConstants.CHANGE_EVENT, this._onChange );
     var channel = {
       name: 'test'
     };
-    actions.destroyChannel(channel);
+    // actions.destroyChannel(channel);
   },
   render: function () {
     var o = this.state;

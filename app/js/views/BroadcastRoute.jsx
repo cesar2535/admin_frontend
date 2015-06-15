@@ -4,8 +4,14 @@
 var Header = require('./Header/Header.jsx');
 var VideoPlayer = require('./VideoPlayer/VideoPlayer.jsx');
 var MessageBox = require('./ChatRoom/MessageBox.jsx');
+var Webcam = require('./WebcamPlayer/Webcam.jsx');
+
 //
 var BroadcastRoute = React.createClass({
+
+  propType: {
+
+  },
 
   //
   componentWillMount: function() {
@@ -54,6 +60,7 @@ var BroadcastRoute = React.createClass({
             <VideoPlayer src="/assets/images/test.mp4" />
           </section>
           <aside>
+            <Webcam />
             <MessageBox />
           </aside>
         </div>

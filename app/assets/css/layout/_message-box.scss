@@ -1,7 +1,11 @@
 .message-box {
+  height: 60vh;
+  border-top: 2px solid #000;
+  box-sizing: border-box;
   .messages-list {
-    height: 500px;
+    height: 75%;
     padding-left: 10px;
+    margin: 5% 0;
     overflow-y: scroll;
   }
   .message-item {
@@ -16,10 +20,12 @@
       border: none;
       margin: 0 auto;
       box-shadow: none;
+      box-sizing: border-box;
       display: block;
     }
     button {
       width: 50px;
+      height: 100%;
       border: none;
       position: absolute;
       top: 0;
