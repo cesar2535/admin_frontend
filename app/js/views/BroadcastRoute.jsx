@@ -69,7 +69,7 @@ var BroadcastRoute = React.createClass({
             <VideoPlayer src={o.video_RTMP_URL} />
           </section>
           <aside>
-            <Webcam />
+            <Webcam streamingId={o.streaming_id} />
             <MessageBox />
           </aside>
         </div>

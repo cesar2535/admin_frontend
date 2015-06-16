@@ -1,7 +1,7 @@
 var Webcam = React.createClass({
   displayName: 'Webcam',
   propTypes: {
-    // src: React.PropTypes.string.isRequired
+    src: React.PropTypes.string.isRequired
   },
   componentDidMount: function () {
     console.log(this.props);
@@ -28,8 +28,8 @@ var Webcam = React.createClass({
   handleClick: function () {
     // console.log('handleClick');
     var webcam = this.getFlashMovie('video1');
-    var src = 'rtmp://192.168.0.108:1935/rtmp?publish=webcam&record=false';
-    // console.log(src);
+    var src = 'rtmp://192.168.0.108:1935/rtmp?publish=webcam_' + this.props.streamingId + '&record=false';
+    console.log(src);
     // console.log(webcam);
     webcam.setProperty('src', src);
   }
