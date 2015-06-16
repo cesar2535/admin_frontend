@@ -70,7 +70,7 @@ var BroadcastRoute = React.createClass({
           </section>
           <aside>
             <Webcam streamingId={o.streaming_id} />
-            <MessageBox />
+            <MessageBox streamingId={o.streaming_id} />
           </aside>
         </div>
       </div>

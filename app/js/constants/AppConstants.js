@@ -25,6 +25,7 @@ module.exports = keyMirror({
 
   CHANNEL_CREATE: null,
   CHANNEL_DESTROY: null,
+  MESSAGE_SEND: null,
   MESSAGE_ADD: null,
 
   noop: null

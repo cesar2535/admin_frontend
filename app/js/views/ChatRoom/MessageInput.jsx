@@ -25,7 +25,7 @@ var MessageInput = React.createClass({
   },
   render: function () {
     return (
-      <div className='message-input' onSubmit={this.handleSubmit}>
+      <div className='message-input'>
         <input type='text' 
                value={this.state.currentItem.content} 
                placeholder="Send a message"
