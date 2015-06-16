@@ -13,7 +13,7 @@ var BrowserRoute = React.createClass({
 
   //
   componentDidMount: function() {
-    console.info('MainApp Did Mount');
+    console.info('BrowserRoute Did Mount');
   },
 
   // 元件將從畫面上移除時，要做善後工作

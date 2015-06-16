@@ -18,8 +18,10 @@ module.exports = keyMirror({
   OBJECT_SERVER_ERROR: null,
 
   CHANGE_EVENT: null,
+  
   FILES_LOAD: null,
   FILE_SELECT: null,
+  VIDEO_BROADCAST: null,
 
   CHANNEL_CREATE: null,
   CHANNEL_DESTROY: null,

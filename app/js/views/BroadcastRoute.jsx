@@ -1,5 +1,8 @@
 // 這是 root view，也稱為 controller-view
 
+var VideoStore = require('../stores/VideoStore');
+var AppConstants = require('../constants/AppConstants');
+var actions = require('../actions/AppActionCreator');
 // var Container = require('./Container.jsx');
 var Header = require('./Header/Header.jsx');
 var VideoPlayer = require('./VideoPlayer/VideoPlayer.jsx');
@@ -12,19 +15,23 @@ var BroadcastRoute = React.createClass({
   propType: {
 
   },
-
+  getInitialState: function () {
+    return this.getTruth();
+  },
   //
   componentWillMount: function() {
-    
+    // VideoStore.addListener( AppConstants.CHANGE_EVENT, this._onChange );
   },
 
   //
   componentDidMount: function() {
-    console.info('MainApp Did Mount');
+    console.info('BroadcastRoute Did Mount');
   },
 
   // 元件將從畫面上移除時，要做善後工作
   componentWillUnmount: function() {
+    // VideoStore.removeListener( AppConstants.CHANGE_EVENT, this._onChange );
+    actions.stopBroadcast();
   },
 
   componentDidUnmount: function() {
@@ -49,6 +56,8 @@ var BroadcastRoute = React.createClass({
 
   //
   render: function() {
+    var o = this.state;
+    console.log(o);
     return (
       <div className="wrapper">
         <Header />
@@ -57,7 +66,7 @@ var BroadcastRoute = React.createClass({
             <div className="title">
               <h1>Title</h1>
             </div>
-            <VideoPlayer src="/assets/images/test.mp4" />
+            <VideoPlayer src={o.video_RTMP_URL} />
           </section>
           <aside>
             <Webcam />
@@ -67,7 +76,12 @@ var BroadcastRoute = React.createClass({
       </div>
     );
   },
-
+  _onChange: function () {
+    return this.getTruth();
+  },
+  getTruth: function () {
+    return VideoStore.getRTMP();
+  }
 
 });
 

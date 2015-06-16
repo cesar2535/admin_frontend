@@ -36,7 +36,8 @@ var VideoDetail = React.createClass({
   onBroadcastClick: function (event) {
     // console.log(event);
     console.log(this.props.video);
-    page('/broadcast/' + this.props.video.uid);
+    actions.broadcastVideo(this.props.video);
+    // page('/broadcast/' + this.props.video.uid);
   }
 });
 

@@ -47,6 +47,43 @@ var AppActionCreators = {
       item: item
     });
   },
+  broadcastVideo: function (item) {
+    var file = {
+      fileName: item.fileName
+    };
+    console.log(file);
+    fetch( nasUrl + '/streaming/onair', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(file)
+    }).then(function (res) {
+      res.json().then(function (data) {
+        console.log(data);
+        AppDispatcher.handleServerAction({
+          actionType: AppConstants.VIDEO_BROADCAST,
+          item: data.data[0]
+        });
+      });
+    });
+  },
+  stopBroadcast: function () {
+    fetch( nasUrl + '/streaming/stop', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(function (body) {
+      console.log(body);
+      AppDispatcher.handleServerAction({
+        actionType: AppConstants.BROADCAST_STOP,
+        item: body.data
+      });
+    })
+  },
   createChannel: function (item) {
     fetch( chatroomUrl + '/channel/create', {
       method: 'post',

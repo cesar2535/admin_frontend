@@ -1,3 +1,4 @@
+var page = require('page');
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppConstants = require('../constants/AppConstants');
 var actions = require('../actions/AppActionCreator');
@@ -7,15 +8,21 @@ var arrVideos = [];
 
 window.arrVideos = arrVideos;
 
-var selectedItem = {}; 
+var selectedItem = {};
+var rtmpInfo = {};
 
 var VideoStore = {};
 
 Object.assign( VideoStore, EventEmitter.prototype, {
+  getRTMP: function () {
+    console.log(rtmpInfo);
+    return rtmpInfo;
+  },
   getAll: function () {
     return {
       arrVideos: arrVideos,
       selectedItem: selectedItem,
+      rtmpInfo: rtmpInfo,
       screenSize: screenSize
     };
   }
@@ -37,6 +44,13 @@ VideoStore.dispatchToken = AppDispatcher.register( function videoEventHandler(ev
         selectedItem = action.item;
         VideoStore.emit( AppConstants.CHANGE_EVENT );
       }
+      break;
+    case AppConstants.VIDEO_BROADCAST:
+      console.info('VideoStore: VIDEO_BROADCAST');
+      console.log(action.item);
+      rtmpInfo = action.item;
+      page('/broadcast/' + rtmpInfo.streaming_id);
+      // VideoStore.emit( AppConstants.CHANGE_EVENT );
       break;
   }
 });
