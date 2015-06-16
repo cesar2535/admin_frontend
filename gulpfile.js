@@ -83,7 +83,7 @@ gulp.task('js-bundle', function(cb) {
 
 // 將其餘 assets 複製到 build/ 目錄下
 gulp.task('copy', function() {
-  return gulp.src(['app/index.html', 'app/assets/images/**/*', 'app/vendor/**/*'], {
+  return gulp.src(['app/index.html', 'app/assets/images/**/*', 'app/vendor/**/*', 'app/assets/player/**/*'], {
       base: 'app'
     })
     .pipe(gulp.dest(paths.destDir));

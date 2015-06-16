@@ -36,6 +36,11 @@ module.exports = {
       exclude: [ /node_modules/, /vendor/ ],
       loaders: [ 'babel-loader' ]
     },
+    {
+      test: /\.json$/,
+      exculde: [ /node_modules/, /vendor/ ],
+      loader: 'json-loader'
+    },
 
     // Sass-loader + Compass-mixins
     {
